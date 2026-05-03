@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════
-   CivilTrack Pro  ·  app.js
+   Work Order HCD JKE  ·  app.js
 ══════════════════════════════════════════════════════════ */
 
 /* ── CREDENTIALS (PIN 6-digit, unik per role) ──────────── */
@@ -59,7 +59,7 @@ function selectRole(role) {
   document.getElementById('step-role').classList.add('hidden');
   document.getElementById('step-pin').classList.remove('hidden');
 
-  const labels = { client:'🏢 Client – PT. Bangun Maju', worker:'👷 Worker – Ahmad Surya, ST.', admin:'🛡️ Administrator – Ir. Dewi Rahayu' };
+  const labels = { client:'🏢 Client – Divisi/Afdeling', worker:'👷 Worker – Aloysius Deddy Batuallo.', admin:'🛡️ Administrator – Tedi Wahyudi' };
   document.getElementById('pin-role-info').textContent = labels[role];
 
   // show hint (in real app remove this)
