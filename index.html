@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CivilTrack Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══ LOGIN ══ -->
+  <div id="login-screen">
+    <div class="login-glow"></div>
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="logo-icon">🏗️</div>
+        <div class="logo-title">CivilTrack Pro</div>
+        <div class="logo-sub">Civil Engineering Project Management System</div>
+      </div>
+
+      <!-- Step 1 : Role selection -->
+      <div id="step-role">
+        <p class="step-label">Pilih Role Anda</p>
+        <div class="role-cards">
+          <div class="role-card client" onclick="selectRole('client')">
+            <div class="role-icon">🏢</div>
+            <div class="role-name">Client</div>
+            <div class="role-desc">Ajukan permintaan &amp; pantau proyek</div>
+          </div>
+          <div class="role-card worker" onclick="selectRole('worker')">
+            <div class="role-icon">👷</div>
+            <div class="role-name">Worker</div>
+            <div class="role-desc">Verifikasi &amp; ajukan material</div>
+          </div>
+          <div class="role-card admin" onclick="selectRole('admin')">
+            <div class="role-icon">🛡️</div>
+            <div class="role-name">Administrator</div>
+            <div class="role-desc">Verifikasi, PR &amp; laporan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 : PIN -->
+      <div id="step-pin" class="hidden">
+        <button class="back-btn" onclick="backToRole()">← Ganti Role</button>
+        <div id="pin-role-info" class="pin-role-info"></div>
+        <p class="step-label">Masukkan PIN 6 Digit</p>
+        <div class="pin-boxes" id="pin-boxes">
+          <input class="pin-box" type="password" maxlength="1" inputmode="numeric" />
+          <input class="pin-box" type="password" maxlength="1" inputmode="numeric" />
+          <input class="pin-box" type="password" maxlength="1" inputmode="numeric" />
+          <span class="pin-sep">—</span>
+          <input class="pin-box" type="password" maxlength="1" inputmode="numeric" />
+          <input class="pin-box" type="password" maxlength="1" inputmode="numeric" />
+          <input class="pin-box" type="password" maxlength="1" inputmode="numeric" />
+        </div>
+        <div id="pin-error" class="pin-error hidden">❌ PIN salah. Coba lagi.</div>
+        <div id="pin-hint"  class="pin-hint"></div>
+        <button class="btn btn-primary btn-full" onclick="doLogin()">Masuk →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ APP SHELL ══ -->
+  <div id="app">
+    <div class="topbar">
+      <div class="topbar-logo"><span>🏗️</span> CivilTrack Pro</div>
+      <div id="role-badge-wrap"></div>
+      <div class="topbar-user">
+        <span id="topbar-user-name"></span>
+        <button class="logout-btn" onclick="logout()">Keluar</button>
+      </div>
+    </div>
+    <div class="main-layout">
+      <div class="sidebar" id="sidebar"></div>
+      <div class="content"  id="content"></div>
+    </div>
+  </div>
+
+  <div id="modal-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
