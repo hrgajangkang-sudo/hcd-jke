@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════
-   Work Order HCD JKE  ·  app.js
+   CivilTrack Pro  ·  app.js
 ══════════════════════════════════════════════════════════ */
 
 /* ── CREDENTIALS (PIN 6-digit, unik per role) ──────────── */
@@ -19,11 +19,11 @@ const pageFilter = {};
 
 const state = {
   tickets: [
-    { id:'TKT-001', title:'Perbaikan Jembatan Sungai Ciawi',    type:'perbaikan',   location:'Jl. Raya Ciawi KM 12',          desc:'Terdapat keretakan pada struktur balok jembatan sepanjang 3m.',                            status:'progress', priority:'tinggi', client:'PT. Bangun Maju', created:'2025-04-15', progress:65,  budget:850000000,  worker:'Ahmad Surya, ST.', materialReq:'MR-001', notes:'Pengerjaan sudah 65%' },
-    { id:'TKT-002', title:'Pembangunan Gedung Serbaguna',        type:'pembangunan', location:'Komplek Perkantoran Blok C',     desc:'Rencana pembangunan gedung serbaguna 3 lantai dengan kapasitas 500 orang.',                status:'review',   priority:'tinggi', client:'PT. Bangun Maju', created:'2025-04-28', progress:10,  budget:4200000000, worker:null, materialReq:null, notes:'' },
-    { id:'TKT-003', title:'Renovasi Jalan Akses Pabrik',         type:'perbaikan',   location:'Kawasan Industri Blok A-7',     desc:'Jalan rusak parah, perlu pengaspalan ulang sepanjang 500m.',                              status:'approved', priority:'sedang', client:'PT. Bangun Maju', created:'2025-04-20', progress:0,   budget:320000000,  worker:'Ahmad Surya, ST.', materialReq:null, notes:'' },
-    { id:'TKT-004', title:'Pemasangan Saluran Drainase',         type:'pembangunan', location:'Perumahan Griya Indah',          desc:'Pembangunan saluran drainase baru untuk mengatasi banjir musiman.',                       status:'new',      priority:'rendah', client:'PT. Bangun Maju', created:'2025-04-30', progress:0,   budget:180000000,  worker:null, materialReq:null, notes:'' },
-    { id:'TKT-005', title:'Perbaikan Atap Gudang B',             type:'perbaikan',   location:'Gudang B, Komplek Industri',    desc:'Kebocoran atap gudang B pada 5 titik.',                                                   status:'done',     priority:'sedang', client:'PT. Bangun Maju', created:'2025-03-10', progress:100, budget:95000000,   worker:'Ahmad Surya, ST.', materialReq:'MR-002', notes:'Selesai sesuai jadwal' },
+    { id:'TKT-001', title:'Perbaikan Jembatan Sungai Ciawi',    type:'perbaikan',   location:'Jl. Raya Ciawi KM 12',          desc:'Terdapat keretakan pada struktur balok jembatan sepanjang 3m.',                            status:'progress', priority:'tinggi', client:'PT. Rezeki Kencana - Afdeling', created:'2025-04-15', progress:65,  budget:850000000,  worker:'Ahmad Surya, ST.', materialReq:'MR-001', notes:'Pengerjaan sudah 65%' },
+    { id:'TKT-002', title:'Pembangunan Gedung Serbaguna',        type:'pembangunan', location:'Komplek Perkantoran Blok C',     desc:'Rencana pembangunan gedung serbaguna 3 lantai dengan kapasitas 500 orang.',                status:'review',   priority:'tinggi', client:'PT. Rezeki Kencana - Afdeling', created:'2025-04-28', progress:10,  budget:4200000000, worker:null, materialReq:null, notes:'' },
+    { id:'TKT-003', title:'Renovasi Jalan Akses Pabrik',         type:'perbaikan',   location:'Kawasan Industri Blok A-7',     desc:'Jalan rusak parah, perlu pengaspalan ulang sepanjang 500m.',                              status:'approved', priority:'sedang', client:'PT. Rezeki Kencana - Afdeling', created:'2025-04-20', progress:0,   budget:320000000,  worker:'Ahmad Surya, ST.', materialReq:null, notes:'' },
+    { id:'TKT-004', title:'Pemasangan Saluran Drainase',         type:'pembangunan', location:'Perumahan Griya Indah',          desc:'Pembangunan saluran drainase baru untuk mengatasi banjir musiman.',                       status:'new',      priority:'rendah', client:'PT. Rezeki Kencana - Afdeling', created:'2025-04-30', progress:0,   budget:180000000,  worker:null, materialReq:null, notes:'' },
+    { id:'TKT-005', title:'Perbaikan Atap Gudang B',             type:'perbaikan',   location:'Gudang B, Komplek Industri',    desc:'Kebocoran atap gudang B pada 5 titik.',                                                   status:'done',     priority:'sedang', client:'PT. Rezeki Kencana - Afdeling', created:'2025-03-10', progress:100, budget:95000000,   worker:'Ahmad Surya, ST.', materialReq:'MR-002', notes:'Selesai sesuai jadwal' },
   ],
   materialRequests: [
     { id:'MR-001', ticketId:'TKT-001', ticketTitle:'Perbaikan Jembatan Sungai Ciawi', items:[{name:'Beton K-300',qty:20,unit:'m³',price:1200000},{name:'Besi Tulangan D16',qty:500,unit:'kg',price:18000},{name:'Bekisting Kayu',qty:50,unit:'lembar',price:85000}], status:'approved', submitted:'2025-04-18', notes:'Material prioritas karena jembatan kritis', pr:'PR-001' },
@@ -59,7 +59,7 @@ function selectRole(role) {
   document.getElementById('step-role').classList.add('hidden');
   document.getElementById('step-pin').classList.remove('hidden');
 
-  const labels = { client:'🏢 Client – Divisi/Afdeling', worker:'👷 Worker – Aloysius Deddy Batuallo.', admin:'🛡️ Administrator – Tedi Wahyudi' };
+  const labels = { client:'🏢 Client – Divisi/Afdeling', worker:'👷 Worker – Aloysius Deddy Batuallo', admin:'🛡️ Administrator – Tedi Wahyudi' };
   document.getElementById('pin-role-info').textContent = labels[role];
 
   // show hint (in real app remove this)
