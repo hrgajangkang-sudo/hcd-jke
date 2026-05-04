@@ -131,7 +131,7 @@ body {
 }
 
 /* Role buttons */
-.role-grid { display: grid; grid-template-columns: 1fr; gap: .6rem; }
+.role-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; }
 .role-btn {
   background: var(--bg3);
   border: 1.5px solid var(--border);
